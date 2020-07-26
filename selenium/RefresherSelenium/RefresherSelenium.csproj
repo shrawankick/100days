@@ -9,8 +9,8 @@
     <ProjectGuid>{C1724B10-ECD9-498C-BD2D-8C4CE343A4C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CASTEST</RootNamespace>
-    <AssemblyName>CASTest</AssemblyName>
+    <RootNamespace>RefresherSelenium</RootNamespace>
+    <AssemblyName>RefresherSelenium</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

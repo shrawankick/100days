@@ -85,15 +85,7 @@ namespace Selftest
 
         public string EnvromentUrl(string Env)
         {
-            string URL;
-            if (Env != "QA")
-            {
-                URL = ConfigurationManager.AppSettings["QAURL"];
-            }
-            else
-            {
-                URL = ConfigurationManager.AppSettings["stageURL"];
-            }
+            string URL = Env == "QA" ? ConfigurationManager.AppSettings["QAURL"] : ConfigurationManager.AppSettings["stageURL"];
             return URL;
         }
 
@@ -103,13 +95,16 @@ namespace Selftest
         /// </summary>
         public void Login()
         {
-            driver.FindElement(By.XPath("//*[@id='bySelection']/div[2]")).Click();
+
+            
             driver.FindElement(
-                By.XPath("//*[@id='userNameInput']")).SendKeys(
-                    ConfigurationManager.AppSettings["QaAdminUserName"]);
+               By.XPath("//*[@name='uid']")).SendKeys(
+                   ConfigurationManager.AppSettings["UserName"]);
             driver.FindElement(
-                By.XPath("//*[@id='passwordInput']")).SendKeys(Decrypt(
-                    ConfigurationManager.AppSettings["QaAdminPassword"]));
+                By.XPath("//*[@name='password']")).SendKeys(
+                    ConfigurationManager.AppSettings["Password"]);
+
+
         }
         /// <summary>
         /// we will login to the application based on the Credentials
@@ -119,6 +114,7 @@ namespace Selftest
         {
             
             Login();
+            driver.FindElement(By.XPath("//*[@name='btnLogin']")).Click();
             //Waitforsomesec(70);
             // driver.FindElement(By.XPath("//*[@id='submitButton']")).Click();
             Waitforsomesec(30);
@@ -368,6 +364,14 @@ namespace Selftest
             driver.SwitchTo().Window(driver.WindowHandles[1]);
             //using find all sub Elements
             List<IWebElement> AllsubTabs = driver.FindElements(By.XPath("//*[@id='uiItemlist']/li")).ToList();
+
+            driver.FindElement(By.XPath("//*[@id='bySelection']/div[2]")).Click();
+            driver.FindElement(
+                By.XPath("//*[@id='userNameInput']")).SendKeys(
+                    ConfigurationManager.AppSettings["QaAdminUserName"]);
+            driver.FindElement(
+                By.XPath("//*[@id='passwordInput']")).SendKeys(Decrypt(
+                    ConfigurationManager.AppSettings["QaAdminPassword"]));
 
         }
 
