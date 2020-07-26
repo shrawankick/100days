@@ -20,13 +20,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using excel = Microsoft.Office.Interop.Excel;
 
-namespace Selftest
+namespace RefresherSelenium
 {
     public class Utilities
     {
 
         public static IWebDriver driver;
-        
+
         public static IWebDriver Driver
         {
             get
@@ -45,7 +45,7 @@ namespace Selftest
         /// This is the starting point of the test 
         /// </summary>
         [SetUp]
-        public void LoginToCas()
+        public void LoginToAPP()
         {
             Navigateurl();
             Waitforsomesec(30);
@@ -96,7 +96,7 @@ namespace Selftest
         public void Login()
         {
 
-            
+
             driver.FindElement(
                By.XPath("//*[@name='uid']")).SendKeys(
                    ConfigurationManager.AppSettings["UserName"]);
@@ -112,7 +112,7 @@ namespace Selftest
         /// </summary>
         public void loginToApplacation()
         {
-            
+
             Login();
             driver.FindElement(By.XPath("//*[@name='btnLogin']")).Click();
             //Waitforsomesec(70);
@@ -120,7 +120,7 @@ namespace Selftest
             Waitforsomesec(30);
         }
 
-        
+
 
         /// <summary>
         /// we wait for some duration to make sure page is loading 
@@ -191,7 +191,7 @@ namespace Selftest
                     // Let the user know that the directory did not exist.
                     Console.WriteLine("Directory not found: " + dirEx.Message);
                 }
-               
+
 
             }
         }
@@ -350,15 +350,23 @@ namespace Selftest
 
 
         }
+        /// <summary>
+        /// things yet to include 
+        /// other waits 
+        /// ddl 
+        /// Data loading from Excel 
+        /// </summary>
         public void GeneralCode()
         {
+            
+
             SelectElement DDLSelect = new SelectElement(driver.FindElement(By.XPath("//*[@id='ddlUserName']")));
 
             DDLSelect.SelectByText("Sravan Kumar");
 
 
             //for finding elements  and tab managememt
-        
+
             var mainwindow = driver.WindowHandles[0];
             var newWindowHandle = driver.WindowHandles[1];
             driver.SwitchTo().Window(driver.WindowHandles[1]);
@@ -375,7 +383,7 @@ namespace Selftest
 
         }
 
-#region CodeEND
-#endregion
+        #region CodeEND
+        #endregion
     }
 }

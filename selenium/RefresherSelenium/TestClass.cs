@@ -14,7 +14,7 @@ using Microsoft.Office.Interop.Excel;
 
 
 
-namespace Selftest
+namespace RefresherSelenium
 {
     [TestFixture]
     class TestClass : Utilities
@@ -37,7 +37,8 @@ namespace Selftest
             
             //Javascriptclick(element);
 
-           // driver.FindElement(By.XPath("//div[3]/div/ul/li[10]")).Click();
+           driver.FindElement(By.XPath("//div[3]/div/ul/li[10]")).Click();
+            Assert.Fail("this test passed intensionally ");
             IAlert alert = driver.SwitchTo().Alert();
             var text = alert.Text;
             Console.WriteLine(text);
