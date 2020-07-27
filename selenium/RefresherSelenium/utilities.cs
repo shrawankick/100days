@@ -390,7 +390,10 @@ namespace RefresherSelenium
             WaitExplicit("enter string");
         }
         /// <summary>
-        /// ExpectedConditions
+        /// Explicit waits is also called as Smart wait this wait is not used for max time
+        /// If the condition for the explicit wait is satisfied,
+        /// the wait condition is exited and the execution proceeds with the next line of code.
+        /// different type ExpectedConditions
         ///AlertIsPresent()
         ///ElementIsVisible()
         ///ElementExists()
