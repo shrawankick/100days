@@ -365,7 +365,7 @@ namespace RefresherSelenium
             DDLSelect.SelectByText("Sravan Kumar");
 
 
-            //for finding elements  and tab managememt
+            //for finding elements  and tab management
 
             var mainwindow = driver.WindowHandles[0];
             var newWindowHandle = driver.WindowHandles[1];
@@ -382,6 +382,53 @@ namespace RefresherSelenium
                     ConfigurationManager.AppSettings["QaAdminPassword"]));
 
         }
+
+
+        public void Waits()
+        {
+            ImplicitWait();
+            WaitExplicit("enter string");
+        }
+        /// <summary>
+        /// ExpectedConditions
+        ///AlertIsPresent()
+        ///ElementIsVisible()
+        ///ElementExists()
+        ///ElementToBeClickable(By)
+        ///ElementToBeClickable(IWebElement)
+        ///ElementToBeSelected(By)
+        ///ElementToBeSelected(IWebElement)
+        ///ElementToBeSelected(IWebElement, Boolean)
+        ///TitleContains()
+        ///UrlContains()
+        ///UrlMatches()
+        ///VisibilityOfAllElementsLocatedBy(By)
+        ///VisibilityOfAllElementsLocatedBy(ReadOnlyCollection<IWebElement>)
+        ///StalenessOf(IWebElement)
+        ///TextToBePresentInElement()
+        ///TextToBePresentInElementValue(IWebElement, String)
+        /// </summary>
+        /// <param name="Xpath"></param>
+        private static void WaitExplicit(string Xpath)
+        {
+            String target_xpath = Xpath;
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            IWebElement SearchResult =
+                wait.Until(
+                    SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(target_xpath)));
+        }
+
+        private static void ImplicitWait()
+        {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        }
+
+
+
+
+
 
         #region CodeEND
         #endregion
