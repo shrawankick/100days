@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace Selftest
+namespace RefresherSelenium
 {
     public class Baseclass
     {

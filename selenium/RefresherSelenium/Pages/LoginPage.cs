@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Selftest
+namespace RefresherSelenium
 {
     public class LoginPage
     {
