@@ -388,7 +388,25 @@ namespace RefresherSelenium
         {
             ImplicitWait();
             WaitExplicit("enter string");
+            FluentWait():
+
         }
+        /// <summary>
+        /// Fluent Wait for the max time for the condition
+        /// we need to give frequency at which
+        /// the WebDriver checks for the element before it throws ElementNotVisibleException.
+        /// </summary>
+        public void FluentWait()
+        {
+            DefaultWait<IWebDriver> fluentwait = new DefaultWait<IWebDriver>(driver);
+            fluentwait.Timeout = TimeSpan.FromSeconds(5);
+            fluentwait.PollingInterval = TimeSpan.FromMilliseconds(250);
+            fluentwait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+
+            IWebElement searchresult = fluentwait.Until(x => x.FindElement(By.XPath("Element Xpath")))
+
+        }
+
         /// <summary>
         /// Explicit waits is also called as Smart wait this wait is not used for max time
         /// If the condition for the explicit wait is satisfied,
