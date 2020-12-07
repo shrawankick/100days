@@ -185,6 +185,7 @@ namespace RefresherSelenium
                     var path = RootPath + filename;
                     screenshot.SaveAsFile(path, ScreenshotImageFormat.Jpeg);
                     TestContext.AddTestAttachment(path);
+                    
                 }
                 catch (DirectoryNotFoundException dirEx)
                 {
@@ -300,7 +301,7 @@ namespace RefresherSelenium
         /// <summary>
         /// Click on search button and wait for the page to load
         /// </summary>
-        public void clickonSearchButton()
+        public void ClickonSearchButton()
         {
             findElementandClick("//*[@id='btnSearch']");
             //  Waitforsomesec(60);

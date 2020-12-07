@@ -3,3 +3,7 @@
 ################################################################################
 
 *.jpg
+/ConceptOfGeneralProgramming/.vs/ConceptOfGeneralProgramming/v15/Server/sqlite3
+/ConceptOfGeneralProgramming/.vs/ConceptOfGeneralProgramming/v15
+/ConceptOfGeneralProgramming/ConceptOfGeneralProgramming/bin/Debug
+/ConceptOfGeneralProgramming/ConceptOfGeneralProgramming/obj/Debug
