@@ -10,6 +10,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 
@@ -73,6 +74,23 @@ namespace RefresherSelenium
             Console.WriteLine(text);
             alert.Accept();
 
+        }
+
+        
+        public void MyTestMethod()
+        {
+            List<IWebElement> allTextBoxes = driver.FindElements(By.TagName("input")).ToList();
+
+            foreach (IWebElement textBox in allTextBoxes)
+            {
+                textBox.DoSomething();
+            }
+
+            IList<IWebElement> options = driver.FindElements(By.TagName("option"));
+            foreach (IWebElement option in options)
+            {
+                Console.WriteLine(option.Text);
+            }
         }
 
         #region end of tests 
