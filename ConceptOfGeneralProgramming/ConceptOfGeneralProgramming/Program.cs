@@ -27,12 +27,14 @@ namespace ConceptOfGeneralProgramming
     /// <summary>
     /// Derived class 
     /// </summary>
-    public class Parrot : Bird
+    public abstract class Parrot : Bird
     {
-        public Parrot(int value) : base(value)
+        public Parrot() : base()
         {
-            Console.WriteLine($"Parrot called with {value}");
+            Console.WriteLine($"Parrot called with ");
         }
+        public int age = 32;
+        public abstract void GetDetails(string color, string beek);
 
     }
     /// <summary>
@@ -50,6 +52,18 @@ namespace ConceptOfGeneralProgramming
         }
     }
 
+    public class BirdsthatTalk: Parrot
+    {
+        public BirdsthatTalk()
+        {
+            Console.WriteLine($"birds that talk");
+        }
+        public override void GetDetails(string color, string beek)
+        {
+            Console.WriteLine($"this bird has {color}");
+        }
+    }
+
     /// <summary>
     /// Program class
     /// </summary>
@@ -57,10 +71,11 @@ namespace ConceptOfGeneralProgramming
     {
         static void Main(string[] args)
         {
-            Parrot parrot = new Parrot(450);
             Ostrich ostrich = new Ostrich(10);
-            parrot.Fly();
             ostrich.Fly();
+            BirdsthatTalk birdsthatTalk = new BirdsthatTalk();
+            birdsthatTalk.GetDetails("Green", "round beak");
+            birdsthatTalk.Fly();
             Console.WriteLine(":::DONE:::");
             Console.ReadLine();
         }
